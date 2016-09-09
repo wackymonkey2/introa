@@ -1,0 +1,133 @@
+<html>
+<div id=remainingCards>
+  <p>
+  
+  </p>
+</div>
+<script>
+function reverseOrder(array, a, b)
+{
+    
+    var newArray = array.slice(a, b); // gets the values to be reversed
+    newArray.reverse(); // reverses the values
+
+    var c;
+       
+    
+    for (c = a; c < b; c++) {
+
+       
+        array[c] = newArray[c-a];
+        // puts the reversed values into the original array
+       
+        
+    }
+    
+    return null;
+    
+}
+
+var Cards = new Array(52);
+var i;
+for (i = 1; i < 10; i++)
+{
+    Cards[i] = [i+1 + "S"];
+}
+
+    Cards[0] = ["A" + "S"];
+    Cards[10] = ["J" + "S"];
+    Cards[11] = ["Q" + "S"];
+    Cards[12] = ["K" + "S"];
+
+
+for (i = 14; i < 23; i++)
+{
+    Cards[i] = [i-12 + "H"];
+}
+
+    Cards[13] = ["A" + "H"];
+    Cards[23] = ["J" + "H"];
+    Cards[24] = ["Q" + "H"];
+    Cards[25] = ["K" + "H"];
+
+for (i = 27; i < 36; i++)
+{
+    Cards[i] = [i-25 + "C"];
+}
+
+    Cards[26] = ["A" + "C"];
+    Cards[36] = ["J" + "C"];
+    Cards[37] = ["Q" + "C"];
+    Cards[38] = ["K" + "C"];
+
+for (i = 40; i < 49; i++)
+{
+    Cards[i] = [i-38 + "D"];
+}
+
+    Cards[39] = ["A" + "D"];
+    Cards[49] = ["J" + "D"];
+    Cards[50] = ["Q" + "D"];
+    Cards[51] = ["K" + "D"];
+    
+reverseOrder(Cards, 26, 39);
+reverseOrder(Cards, 39, 52);
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+var Shuffle = prompt("Would you like to shuffle the cards?", "Yes");
+
+if (Shuffle == "Yes")
+{
+    shuffle(Cards);
+}
+var Done = false;
+
+while (!Done)
+{
+
+var Deal = prompt("Would you like to deal a card?", "Yes").toLowerCase();
+
+if(Deal==="yes" && Cards.length>0)
+{
+    alert(Cards.pop());
+    
+}
+else if (Deal === "no" && Cards.length>0)
+{
+    Done = true;
+     var DealAll = prompt("Would You like to deal the rest of the cards?", "Yes").toLowerCase();
+     if (DealAll === "yes")
+     {
+         for (i = 0; i < Cards.length; i++)
+         {
+            document.getElementById("remainingCards") = "The remaining cards are:";
+            document.write(Cards[i]);
+            document.write("<br>");
+         }
+     }
+}else if (Cards.length===0){
+  alert("All cards have been dealt.");
+  Done = true;
+}
+}
+    
+</script>
+</html>
