@@ -1,0 +1,26 @@
+<html>
+  
+
+<input id="input" type="text" name="userInput" placeholder="Type anything here." onkeypress="updateCharsRemaining()" onkeydown="updateCharsRemaining()" maxlength=140 style="width: 500px; rows:5;"><br>
+<input id="enter" type="submit" value="Enter">
+<div id="charsRemaining">
+  <p>
+    
+  </p>
+</div>
+
+<script>
+
+document.getElementById("charsRemaining").innerHTML = 140-stringLength + " characters remaining.";
+  
+function updateCharsRemaining(){
+    var inputString = document.getElementById("input").value;
+    var stringLength = inputString.length;
+    document.getElementById("charsRemaining").innerHTML = 140-stringLength + " characters remaining.";
+    if (stringLength>=140){
+      alert("You can't type anymore in this box.")
+    }
+  }
+</script>
+  
+</html>
