@@ -114,9 +114,9 @@ else if (Deal === "no" && Cards.length>0)
      var DealAll = prompt("Would You like to deal the rest of the cards?", "Yes").toLowerCase();
      if (DealAll === "yes")
      {
+        document.getElementById("remainingCards").innerHTML = "The remaining cards are:";
          for (i = 0; i < Cards.length; i++)
          {
-            document.getElementById("remainingCards") = "The remaining cards are:";
             document.write(Cards[i]);
             document.write("<br>");
          }
