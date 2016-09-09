@@ -1,8 +1,10 @@
 <html>
   
+<br>
 
-<input id="input" type="text" name="userInput" placeholder="Type anything here." onkeypress="updateCharsRemaining()" onkeydown="updateCharsRemaining()" maxlength=140 style="width: 500px; rows:5;"><br>
-<input id="enter" type="submit" value="Enter">
+<input id="input" type="text" name="userInput" placeholder="Type anything here." onkeyup="updateCharsRemaining()" style="width: 500px; ;"><br>
+<input id="enter" type="submit" value="Check how many characters you have remaining." onclick="checkCharsRemaining()">
+<br>
 <div id="charsRemaining">
   <p>
     
@@ -11,16 +13,33 @@
 
 <script>
 
-document.getElementById("charsRemaining").innerHTML = 140-stringLength + " characters remaining.";
+document.getElementById("charsRemaining").innerHTML = 140 + " characters remaining.";
   
 function updateCharsRemaining(){
     var inputString = document.getElementById("input").value;
     var stringLength = inputString.length;
-    document.getElementById("charsRemaining").innerHTML = 140-stringLength + " characters remaining.";
-    if (stringLength>=140){
-      alert("You can't type anymore in this box.")
+    var remaining = 140-stringLength;
+    var over = stringLength - 140;
+    if(remaining>=0){
+    document.getElementById("charsRemaining").innerHTML = remaining + " characters remaining.";
+    }else document.getElementById("charsRemaining").innerHTML = "You are over the 140 character limit by " + over + " characters.";
+    if (remaining<0){
+      alert("You can't type anymore in this box.");
     }
   }
+function checkCharsRemaining(){
+  var inputString = document.getElementById("input").value;
+  var stringLength = inputString.length;
+  var remaining = 140-stringLength;
+  var over = stringLength - 140;
+  if (remaining<0){
+    alert("You have gone over the 140 character limit by " + over + " characters.");
+  }else if(stringLength==140){
+    alert("You have used all of your characters.");
+  }else{
+    alert(remaining + " characters remaining.");
+  }
+}
 </script>
   
 </html>
