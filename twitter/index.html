@@ -1,0 +1,59 @@
+<html>
+<br>
+<input id="input" type="text" name="userInput" placeholder="Type anything here." onkeyup="updateCharsRemaining()" style="width: 1000px;"><br>
+<input id="enter" type="submit" value="Check how many characters you have remaining." onclick="checkCharsRemaining()">
+<br>
+<div id="charsRemaining">
+  <p>
+    
+  </p>
+</div>
+
+<script>
+
+document.getElementById("charsRemaining").innerHTML = 140 + " characters remaining.";
+document.getElementById("charsRemaining").style.color = "#00ff00";
+  
+function updateCharsRemaining(){
+    var input = document.getElementById("input");
+    var inputString = input.value;
+    var stringLength = inputString.length;
+    var remaining = 140-stringLength;
+    var over = stringLength - 140;
+    var greenAmount = 0;
+    var redAmount = 0;
+    if (remaining >= 70){
+      greenAmount = 255;
+      redAmount = Math.floor((stringLength/70) * 255);
+    }else if(remaining<=70){
+      greenAmount = Math.floor((remaining/70) * 255);
+      redAmount = 255;
+    }
+    var redString = redAmount.toString();
+    var greenString = greenAmount.toString();
+    var rgb = "rgb("+redString+", "+greenString+", 0)";
+    
+    document.getElementById("charsRemaining").style.color = rgb;
+    
+    if(remaining>=0){
+    document.getElementById("charsRemaining").innerHTML = remaining + " characters remaining.";
+    }else document.getElementById("charsRemaining").innerHTML = "You are over the 140 character limit by " + over + " characters.";
+    if (remaining<0){
+      alert("You can't type anymore in this box.");
+    }
+  }
+function checkCharsRemaining(){
+  var inputString = document.getElementById("input").value;
+  var stringLength = inputString.length;
+  var remaining = 140-stringLength;
+  var over = stringLength - 140;
+  if (remaining<0){
+    alert("You have gone over the 140 character limit by " + over + " characters.");
+  }else if(stringLength==140){
+    alert("You have used all of your characters.");
+  }else{
+    alert(remaining + " characters remaining.");
+  }
+}
+</script>
+</html>
