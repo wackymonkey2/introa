@@ -1,0 +1,54 @@
+<html>
+  <br>
+  <div id="balance">
+    Your current balance: $500000000000
+  </div>
+  
+  <input id="amount" type="number" name="amount" placeholder="Amount to be withdrawn or deposited" style="width: 300px;"><br>
+  <input id="pin" type="number" name="pin" placeholder="Your PIN" style="width: 300px"><br>
+  <input id="creditCardNumber" type="number" name="creditCardNumber" placeHolder="Your credit card number" style="width: 300px"><br>
+  <input id="animal" type="input" name="animal" placeholder="What is your favorite animal?" style="width: 300px;"><br>
+  <input id="food" type="input" name="food" placeholder="What is your favorite food?" style="width: 300px;"><br>
+  <input id="color" type="input" name="color" placeholder="What is your favorite color?" style="width: 300px;"><br>
+  <input id="captcha" type="input" name="captcha" placeholder="Are you a robot?" style="width: 300px;"><br>
+  <input id="withdraw" type="button" name="withdraw" value="Make a withdrawl" onclick="action('withdrawl')">
+  <input id="deposit" type="button" name="deposit" value="Place a deposit" onclick="action('deposit')">
+  
+  <script>
+    var balance = 500000000000;
+    
+    function action(action){
+      var amount = document.getElementById("amount").value;
+      var pin = document.getElementById("pin").value.toLowerCase();
+      var creditCardNumber = document.getElementById("creditCardNumber").value.toLowerCase();
+      var animal = document.getElementById("animal").value.toLowerCase();
+      var food = document.getElementById("food").value.toLowerCase();
+      var color = document.getElementById("color").value.toLowerCase();
+      var captcha = document.getElementById("captcha").value.toLowerCase();
+      
+      if(action=="withdrawl"){
+        withdrawl(amount, pin, creditCardNumber, animal, food, color, captcha);
+      }else if(action=="deposit"){
+        deposit(amount, pin, creditCardNumber, animal, food, color, captcha);
+      }
+
+    }
+    
+    function withdrawl(amount, pin, creditCardNum, securityQ1, securityQ2, securityQ3, captcha){
+      if (pin === "1234" && creditCardNum==="4321" && securityQ1==="dog" && securityQ2==="pizza" && securityQ3==="#ff00ff" && captcha==="no" && amount<=balance){
+        balance -= amount;
+        document.getElementById("balance").innerHTML = "Your current balance: $" + balance;
+        alert("Withdrawl of $" + amount + " has been made");
+      }else alert("One or more security answers was wrong!");
+    }
+    function deposit(amount, pin, creditCardNum, securityQ1, securityQ2, securityQ3, captcha){
+      if (pin == 1234 && creditCardNum==4321 && securityQ1=="dog" && securityQ2=="pizza" && securityQ3=="#ff00ff" && captcha){
+        balance += parseInt(amount, 10);
+        document.getElementById("balance").innerHTML = "Your current balance: " + balance;
+        alert("Deposit of $" + amount + " has been made");
+      }else alert("One or more security answers was wrong!");
+    }
+    
+  </script>
+  
+</html>
