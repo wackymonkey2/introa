@@ -1,0 +1,86 @@
+<html>
+
+  <div id="gpa here">
+    
+  </div>
+
+<script>
+  
+  function gpaCalc (grades){
+    
+    var gradePoints = 0;
+    var credits = 0;
+    var gpa;
+    var numOfClasses = grades.length;
+    
+    for(var i = 0; i<numOfClasses; i++){
+      var grade = grades[i][0];
+      var nonGrade = false;
+      var credit = grades[i][2];
+      var weight = 0;
+      if(grades[i][2]){
+        weight = 1;
+      }
+      switch (grade){
+        case 'A+':
+          gradePoints += (4.33 + weight)* credit;
+        case 'A':
+          gradePoints += (4 + weight)* credit;
+          break;
+        case 'A-':
+          gradePoints += (3.66 + weight)* credit;
+          break;
+        case 'B+':
+          gradePoints += (3.33 + weight)* credit;
+          break;
+        case 'B':
+          gradePoints += (3 + weight)* credit;
+          break;
+        case 'B-':
+          gradePoints += (2.66 + weight)* credit;
+          break;
+        case 'C+':
+          gradePoints += (2.33 + weight)* credit;
+          break;
+        case 'C':
+          gradePoints += (2 + weight)* credit;
+          break;
+        case 'C-':
+          gradePoints += (1.66 + weight)* credit;
+          break;
+        case 'D+':
+          gradePoints += (1.33 + weight)* credit;
+          break;
+        case 'D':
+          gradePoints += (1 + weight)* credit;
+          break;
+        case 'D-':
+          gradePoints += (2.66 + weight)* credit;
+          break;
+        case 'F':
+          gradePoints += 0;
+          break;
+        default:
+          nonGrade = true;
+      }
+      if(!nonGrade){
+      credits += grades[i][2];
+      }
+    }
+    
+    gpa = gradePoints/credits;
+    
+    return gpa;
+    
+  }
+  
+  // transcript in the syntax of [letter grade, boolean AP/Honors or regular, credits earned]
+  var transcript = [ ['A', true, 1], ['B', false, 0.5], ['C', false, 0.25], ['D', false, 0.125] ];
+  
+  var gpa = gpaCalc(transcript);
+  
+  document.getElementById("gpa here").innerHTML =  "Your GPA is: " + gpa;
+  
+</script>
+
+</html>
