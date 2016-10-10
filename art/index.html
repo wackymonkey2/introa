@@ -1,0 +1,193 @@
+<html><head>
+  
+  
+  
+</head><body>
+
+<canvas id="thePainting" width="screen.width" height="screen.height"></canvas>
+
+<script>
+  
+    var id = document.getElementById("thePainting");
+    var idTX = id.getContext("2d");
+    
+    var width = window.innerWidth*0.95;
+    var height = width*6/7;
+    while(height>window.innerHeight*0.95){
+      width --;
+      height = width*6/7;
+    }
+    
+    //testing lines, hardcode canvas size
+    width = 350;
+    height = 250;
+    
+    console.log(width);
+    console.log(height);
+    
+    id.width = width;
+    id.height = height;
+    
+    
+    //original sizes: 350, 300
+    
+    //fills the canvas
+    idTX.fillStyle = "#b6c6d6";
+    idTX.fillRect(0, 0, width, height)
+    idTX.stroke();
+    
+    //brown rectangle, 75,10,100,100
+    idTX.fillStyle = "#5b3803";
+    idTX.fillRect(width*3/14, height/25, height*0.4, height*0.4);
+    idTX.stroke();
+    
+    //off white quarter-circle
+    idTX.beginPath();
+    idTX.fillStyle = "#fffaed";
+    idTX.strokeStyle = "#fffaed";
+    idTX.arc(width*3/14, height/25, width/7, 0, 0.5*Math.PI);
+    idTX.fill();
+    idTX.stroke();
+    idTX.beginPath();
+    tri(width*3/14, height/25, width*5/14, height/25, width*3/14, height*0.24, idTX);
+    idTX.fill();
+    idTX.stroke();
+    
+    //orange rectangle
+    idTX.fillStyle = "#ff7b00";
+    idTX.fillRect(width*0.5, height/10, width*17/70, height*0.34);
+    idTX.stroke();
+    
+    //brown vertical line
+    idTX.fillStyle = "#512700";
+    idTX.fillRect(width*23/35, height*3/50, width/70, height*19/50);
+    idTX.stroke();
+    
+    //yellow strip
+    idTX.fillStyle = "#ffdd00";
+    idTX.fillRect(width/14, height*0.44, width*6/7, height*0.02);
+    idTX.stroke();
+    
+    //large blue rectangle
+    idTX.fillStyle = "#2f2f5f";
+    idTX.fillRect(width/7, height*0.46, width*17/70, height*0.34);
+    idTX.stroke();
+    
+    //yellow strip through blue rect
+    idTX.fillStyle = "#ffdd00";
+    idTX.fillRect(width/7, height*0.66, width*17/70, height*0.032);
+    idTX.stroke();
+    
+    //black rectangle
+    idTX.fillStyle = "black";
+    idTX.fillRect(width*27/70, height*0.46, width/14, height*0.06);
+    idTX.stroke();
+    
+    //blue square
+    idTX.fillStyle = "#2f2f5f";
+    idTX.fillRect(width*16/35, height*0.46, width*3/70, height*0.06);
+    idTX.stroke();
+    
+    //flesh square
+    idTX.fillStyle = "#ffd5af";
+    idTX.fillRect(width/2, height*0.46, width*11/35, height*0.44);
+    idTX.stroke();
+    
+    //green rect
+    idTX.fillStyle = "#388b45";
+    idTX.fillRect(width*27/70, height*0.52, width*4/35, height*0.372);
+    idTX.stroke();
+    
+    //black strip
+    idTX.fillStyle = "black";
+    idTX.fillRect(width*27/70, height*0.52, width/350, height*0.348);
+    idTX.stroke();
+    
+    //"shadow" of brown circle
+    idTX.strokeStyle = "rgba(0, 0, 0, 0.00001)";
+    idTX.fillStyle = "rgba(0, 0, 0, 0.8)";
+    idTX.beginPath();
+    idTX.moveTo(width*122/175, height*0.66);
+    idTX.quadraticCurveTo(width*51/70, height*0.9, width*108/175, height*175/250);
+    idTX.stroke();
+    idTX.fill();
+    
+    //brown circle
+    idTX.beginPath();
+    idTX.strokeStyle = "#5b3803";
+    idTX.fillStyle = "#5b3803";
+    idTX.arc(width*230/350, height*170/250, width*14/350, 0, 2*Math.PI);
+    idTX.fill();
+    idTX.stroke();
+    
+    //"shadow" to the right of orange square
+    idTX.strokeStyle = "rgba(0, 0, 0, 0.00001)";
+    idTX.fillStyle = "rgba(0, 0, 0, 0.8)";
+    quadrilateral(260, 45, 268, 55, 268, 110, 260, 110, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" under the left of yellow strip
+    quadrilateral(27, 157, 50, 157, 50, 165, 25, 165, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" under blue rectangle
+    quadrilateral(54, 200, 135, 200, 135, 250, 52, 250, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" under flesh rectangle
+    quadrilateral(134, 225, 285, 225, 285, 250, 134, 250, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" under green rectangle
+    quadrilateral(134, 223, 175, 223, 175, 225, 134, 225, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" under right of yellow strip
+    quadrilateral(285, 157, 327, 157, 332, 165, 285, 165, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" right of flesh box
+    quadrilateral(285, 155, 295, 161, 295, 250, 285, 250, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" under small blue square
+    quadrilateral(160, 130, 175, 130, 175, 165, 170, 165, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" left of blue square
+    quadrilateral(175, 115, 175, 150, 178, 149, 177, 125, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    //"shadow" under small yellow strip
+    quadrilateral(50, 174, 135, 174, 135, 176, 50, 176, idTX);
+    idTX.stroke();
+    idTX.fill();
+    
+    function tri(pt1x, pt1y, pt2x, pt2y, pt3x, pt3y, canvas){
+      canvas.beginPath();
+      canvas.moveTo(pt1x, pt1y);
+      canvas.lineTo(pt2x, pt2y);
+      canvas.lineTo(pt3x, pt3y);
+      canvas.lineTo(pt1x, pt1y);
+    }
+    function quadrilateral(pt1x, pt1y, pt2x, pt2y, pt3x, pt3y, pt4x, pt4y, canvas){
+      canvas.beginPath();
+      canvas.moveTo(pt1x, pt1y);
+      canvas.lineTo(pt2x, pt2y);
+      canvas.lineTo(pt3x, pt3y);
+      canvas.lineTo(pt4x, pt4y);
+      canvas.lineTo(pt1x, pt1y);
+    }
+  
+</script>
+
+</body></html>
