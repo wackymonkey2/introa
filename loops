@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<p id="arrayUnsorted">The unsorted array: ["aplha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "KAPPA", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega"]</p>
+<script>
+  
+  var unsortedArray = ["aplha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "KAPPA", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega"];
+  
+  var sortedArray = sortArrayByLength(unsortedArray);
+  
+  document.write("The sorted array: [");
+  
+  for(i = 0; i < sortedArray.length; i++){
+    if(i != sortedArray.length - 1){
+      document.write('"' + sortedArray[i] + '", ');
+    }else document.write('"' + sortedArray[i] + '"]');
+  }
+  
+  function sortArrayByLength (unsorted) {
+  
+    var sorted = [];
+    
+    while(unsorted.length > 0){
+    
+      var longestLength = 0;
+      var longestString;
+      var longestIndex;
+    
+      for (i = 0; i < unsorted.length; i++){
+        if (unsorted[i].length > longestLength){
+          longestLength = unsorted[i].length;
+          longestString = unsorted[i];
+          longestIndex = i;
+        }
+      }
+      var longest = unsorted.splice(longestIndex, 1)
+      sorted.push(longest);
+    }
+    return sorted;
+  }
+  
+</script>
