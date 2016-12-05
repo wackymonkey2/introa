@@ -1,0 +1,155 @@
+/*Color Scheme:
+https://color.adobe.com/Light-Blue-color-theme-8232842/?showPublished=true */
+body {
+  background: url("images/pattern.png");
+  background-attachment: fixed;
+
+}
+.overlay {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    background: #e8f8ff;
+    background: rgba(232, 248, 255, 0.6);
+}
+.centerMe {
+  text-align: center;
+}
+.fancyFont{
+  font-family: 'Tangerine', cursive;
+  font-size: 200%;
+  font-weight: normal;
+}
+.contentWrapper {
+  width: 50%;
+  margin-left: 25.5%;
+  padding: 0.5% 0.5% 0.5% 0.5%;
+  padding-bottom: 2%;
+  background: rgba(180, 220, 237, 0.3);
+}
+#title {
+  font-size: 400%;
+}
+
+#photoWrapper{
+  position: relative;
+  width: 75%;
+  margin-left: 12.5%;
+}
+#container{
+  position: relative;
+  width: 100%;
+  background-color: rgb(51, 153, 204);
+  background-color: rgba(51, 153, 204, 0.2);
+  display: flex;
+  align-items: center;
+}
+.picture {
+  margin: auto;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+}
+
+#inputWrapper {
+  width: 100%;
+}
+button {
+  background-color: #b4dced;
+  color: #3399cc;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #3399cc;
+  width: 33%;
+  margin-top: 1%;
+  outline: none;
+}
+button:hover {
+  background-color: #a4ccdd;
+}button:active {
+  background-color: #c4ecfd;
+}
+.arrowImage{
+  width: 100%;
+}
+#forward {
+  position: relative;
+  float: right;
+}
+#back {
+  position: relative;
+  margin-left: 0;
+}
+#jumpToValue {
+  background: #b4dced;
+  color: #b4dced;
+  border-style: none;
+  width: 30%;
+}
+/*gives blank slider to be styled*/
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  position: relative;
+  top: -5px;
+}
+input[type=range] :: -webkit-slider-thumb{
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+/*Chrome styling of slider:*/
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #3399cc;
+  height: 360%;
+  width: 7%;
+  border-radius: 3px;
+  background: #b4dcef;
+  cursor: pointer;
+  margin-top: -5%; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+input[type=range]::-webkit-slider-thumb:hover{
+  background-color: #a4ccdd;
+}
+input[type=range]::-webkit-slider-thumb:active{
+  background-color: #c4ecfd;
+}
+/*track styling */
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 400%;
+  cursor: pointer;
+  background: #b4dcef;
+  border-radius: 1.3px;
+  border: 1px solid #3399cc;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #b4dcef;
+}
+
+h2 {
+  font-size: 200%;
+}
+p {
+  font-family: 'Aref Ruqaa', serif;
+  text-align: justify;
+  width: 75%;
+  margin-left: 12.5%;
+}
+
+#chart_div{
+  border-style: groove;
+  border-width: 10;
+  border-color: #3399cc;
+  background-color: rgb(51, 153, 204);
+  background-color: rgba(51, 153, 204, 0.2);
+  width: 75%;
+  margin-left: 12.5%;
+}
