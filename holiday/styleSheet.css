@@ -14,7 +14,7 @@ body {
     top: 0;
     left: 0;
     background: #e8f8ff;
-    background: rgba(232, 248, 255, 0.6);
+    background: rgba(232, 248, 255, 0.75);
 }
 .centerMe {
   text-align: center;
