@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>The Best Tetris Game Ever</title>
+    <link rel="shortcut icon" href="tetrisPiece.ico" />
+    <link rel="url icon" href="tetrisPiece.ico"/>
+    <link rel="styleSheet" href="styleSheet.css"/>
+  </head>
+  <body>
+    
+    <h1>Tetris</h1>
+    
+    <div id="wrapper" class="container">
+    
+    <div id="leftColumn" class="flex-column">
+      <h2 class="alignJustify">How to Play</h2>
+      <p  class="alignJustify">Move and rotate the pieces to make them complete as many rows as possible.</p>
+      <h2 class="alignJustify">Controls:</h2>
+      <p  class="alignJustify">Move left: LEFT ARROW</p>
+      <p  class="alignJustify">Move right: RIGHT ARROW</p>
+      <p  class="alignJustify">Rotate clockwise: X</p>
+      <p  class="alignJustify">Rotate counter-clockwise: Z</p>
+      <p  class="alignJustify">Hold: C</p>
+      <p  class="alignJustify">Soft drop: DOWN ARROW</p>
+      <p  class="alignJustify">Hard drop: SPACEBAR</p>
+      <p  class="alignJustify">Pause: ESC</p>
+    </div>
+    
+    <div id="playBox" class="colorBlack container flex-column">
+      
+      <div id="leftColumnWrapper" class="flex-column">
+      
+      <div id="heldPiece" class="colorBlack"><h3></h3>
+      </div>
+    
+        <div id="score" class="colorBlack"><h3>Score: </h3><h3 id="scoreData">0</h3></div>
+        <div id="level" class="colorBlack"><h3>Level: </h3><h3 id="levelData">1</h3></div>
+        <div id="line" class="colorBlack"><h3>Line: </h3><h3 id="lineData">0</h3></div>
+      
+      </div>
+      
+      <div id="playField" class="colorBlack">
+        
+      </div>
+      
+      <div id="nextPieces" class="colorBlack nextPieceHolder flex-column">
+        <h3>Next</h3>
+        <div id="nextPiece" class="colorBlack nextPieces"><h3>Piece here</h3></div>
+        <div id="nextPiece2" class="colorBlack nextPieces"><h3>Piece here</h3></div>
+        <div id="nextPiece3" class="colorBlack nextPieces"><h3>Piece here</h3></div>
+      </div>
+      
+    </div>
+    
+    <div id="rightColumn" class="flex-column">
+      <h2 class="alignJustify">Scoring</h2>
+      <p  class="alignJustify">Soft Drop: LEVEL x DISTANCE</p>
+      <p  class="alignJustify">Hard Drop: 2 x LEVEL x DISTANCE</p>
+      <p  class="alignJustify">One Line Clear: LEVEL x 100</p>
+      <p  class="alignJustify">Two Lines Clear: LEVEL x 200</p>
+      <p  class="alignJustify">Three Lines Clear: LEVEL x 300</p>
+      <p  class="alignJustify">Tetris: LEVEL x 800</p>
+      <p  class="alignJustify">Back-to-Back: 0.5 x Tetris</p>
+      </div>
+    </div>
+    
+  <foot>
+<!--   <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script> -->
+    <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+    <script src="js/mainGlobals.js" type="text/javascript"></script>
+    <script src="js/mainLogic.js" type="text/javascript"></script>
+  </foot>
+  </body>
+</html>
